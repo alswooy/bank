@@ -1,4 +1,6 @@
-public class Account implements InOutInterface<Long>{
+package bank1;
+
+public class Account{
     long accountNumber;
     long haveMoney;
     String ownerName;
@@ -9,17 +11,14 @@ public class Account implements InOutInterface<Long>{
         this.haveMoney = 0;
     }
 
-    @Override
     public void input(Long money) {
-        if (money>0){
-            haveMoney+=money;
-            System.out.println("입금한 금액:"+haveMoney);
-        }else {
+        if (money > 0) {
+            haveMoney += money;
+            System.out.println("입금한 금액:" + haveMoney);
+        } else {
             System.out.println("입금금액이 0보다 적습니다.");
         }
     }
-
-    @Override
     public void Out(Long money) {
         if(money > 0 && money<=haveMoney){
             System.out.println("보유금액 : "+haveMoney);

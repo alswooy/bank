@@ -1,11 +1,17 @@
+package bank1;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Bank{
     private List<Account> accounts = new ArrayList<Account>();
-
-    public void AccountCreate(String name){
+    //고객이 포함이 안되어있으니깐 계좌랑 연결이 안됨
+    //고객이 없으니깐 고객의 계좌 리스트 불가능
+    //고객은 서비스를 사용하는 고객이니깐 bank가 다 처리해야하는데
+    //내가 말한대로 설계 하게 된다면 고객이 은행에서 입금출금계좌생성 직접 다하는거네
+    //저렇게 되면 고객 1명이 사용을 하는 시스템을 개발하는거고 유지보수 확장성이 어렵네
+    public void accountCreate(String name){
         if(accounts.size()<=3){
             long accountNumber = new Random().nextLong();
             Account newAccount = new Account(accountNumber,name);
@@ -14,10 +20,8 @@ public class Bank{
         }else{
             System.out.println(name+"님 계좌가 너무 많아 생성 불가");
         }
-        
-        
     }
-    public Account AccountSelect(String name){
+    public Account accountSelect(String name){
         for(Account account : accounts){
             if (account.ownerName.equals(name)) {
                 return account;
@@ -26,8 +30,8 @@ public class Bank{
         return null;
     }
 
-    public void out(String name, long money) {
-        Account userAccount = AccountSelect(name);
+    public void output(String name, long money) {
+        Account userAccount = accountSelect(name);
         if(userAccount != null){
             userAccount.Out(money);
         }else{
@@ -37,7 +41,7 @@ public class Bank{
 
 
     public void input(String name, long money) {
-        Account userAccount = AccountSelect(name);
+        Account userAccount = accountSelect(name);
         if(userAccount != null){
             userAccount.input(money);
         }else{

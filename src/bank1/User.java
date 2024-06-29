@@ -1,3 +1,5 @@
+package bank1;
+
 public class User {
     String name;
     Bank bank;
@@ -10,8 +12,8 @@ public class User {
         this.bank=bank;
     }
     public Account selectAccount(String name){
-        if(bank.AccountSelect(name)!=null){
-            return bank.AccountSelect(name);
+        if(bank.accountSelect(name)!=null){
+            return bank.accountSelect(name);
         }
         System.out.println("계좌가 없습니다. 계좌 생성을 해주세요.");
         return null;
