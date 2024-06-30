@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+/*
+    단일책임원칙위반
+        은행<-고객<-계좌 이렇게 한다면 단일책임원칙이 지켜진다..?
+        클래스가 멱황학 역할을 가지게 되어 유지보수성과 확장성이 크게 향상
+        각각 자신만의 책임을 지켜 유지보수가쉽다.
+    복잡성증가 <- bank에 책임이 너무 많아 복잡해짐
+    각
+ */
 
 public class Bank {
     private String name;
