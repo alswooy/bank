@@ -29,6 +29,7 @@ public class Main {
         bank.input(user.name,1000,account2);
         System.out.println();
         bank.output(user.name,500,account);
-
+        user.selectAccount(user.name);
+        user1.selectAccount(user1.name);
     }
 }
